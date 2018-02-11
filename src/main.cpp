@@ -65,7 +65,7 @@ int main()
     	  // reads first element from the current line
     	  string sensor_type;
     	  iss >> sensor_type;
-
+    	  //cout << "LIDAR and RADAR decision" << endl;
     	  if (sensor_type.compare("L") == 0) {
       	  		meas_package.sensor_type_ = MeasurementPackage::LASER;
           		meas_package.raw_measurements_ = VectorXd(2);
@@ -105,6 +105,7 @@ int main()
     	  gt_values(3) = vy_gt;
     	  ground_truth.push_back(gt_values);
           
+    	  //cout << "process measurement in main" << endl;
           //Call ProcessMeasurment(meas_package) for Kalman filter
     	  ukf.ProcessMeasurement(meas_package);    	  
 
